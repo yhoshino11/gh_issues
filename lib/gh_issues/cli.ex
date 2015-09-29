@@ -6,7 +6,21 @@ defmodule GHIssues.CLI do
   """
 
   def run(argv) do
-    parse_args(argv)
+    argv
+    |> parse_args
+    |> process
+  end
+
+  def process(:help) do
+    IO.puts """
+    usage: gh_issues <user> <project> [ count | #{@default_count} ]
+    """
+
+    System.halt(0)
+  end
+
+  def process({user, project, _count}) do
+    GHIssues.GithubIssues.fetch(user, project)
   end
 
   @doc """
