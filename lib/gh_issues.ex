@@ -1,0 +1,2 @@
+defmodule GhIssues do
+end
