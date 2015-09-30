@@ -19,11 +19,12 @@ defmodule GHIssues.CLI do
     System.halt(0)
   end
 
-  def process({user, project, _count}) do
+  def process({user, project, count}) do
     GHIssues.GithubIssues.fetch(user, project)
     |> decode_response
     |> convert_to_list_of_hashdicts
     |> sort_into_ascending_order
+    |> Enum.take(count)
   end
 
   def sort_into_ascending_order(list_of_issues) do
