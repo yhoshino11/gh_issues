@@ -6,6 +6,12 @@ defmodule GHIssues.CLI do
   Handle the command line parsing and the dispatch to the various functions that end up generationg a table of the last _n_issues in a github project
   """
 
+  def main(argv) do
+    argv
+    |> parse_args
+    |> process
+  end
+
   def run(argv) do
     argv
     |> parse_args

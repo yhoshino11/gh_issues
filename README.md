@@ -1,4 +1,4 @@
-# GHIssues - powered by Elixir
+# ( WIP ) GHIssues - powered by Elixir
 
 ## Listing GitHub Issues for your project
 
